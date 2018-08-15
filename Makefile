@@ -3,18 +3,23 @@ CXX = g++
 vpath %.cpp ./src
 vpath %.hpp ./include
 
-CFLAG=-I ./include 
+INCLUDE_PATH := -I./include
+LD_LIBRARY := -lgflags
 
 MAIN := $(BUILD_DIR)/main
 .PHONY: all
 all: $(BUILD_DIR)/.dummy $(MAIN)
 
-OBJ := $(BUILD_DIR)/main.o
+OBJ := $(BUILD_DIR)/main.o $(BUILD_DIR)/employee_node.o $(BUILD_DIR)/employee_list.o
 $(MAIN): $(OBJ)
-	$(CXX) -o $@ $^
-$(BUILD_DIR)/main.o : main.cpp main.hpp
-	$(CXX) -c $< -o $@ $(CFLAG)
-$(BUILD_DIR)/.dummy :
+	$(CXX) -o $@ $^ $(LD_LIBRARY)
+$(BUILD_DIR)/main.o: main.cpp employee_node.hpp main.hpp
+	$(CXX) -c $< $(INCLUDE_PATH) -o $@
+$(BUILD_DIR)/employee_node.o: employee_node.cpp employee_node.hpp main.hpp
+	$(CXX) -c $< $(INCLUDE_PATH) -o $@
+$(BUILD_DIR)/employee_list.o: employee_list.cpp employee_list.hpp employee_node.hpp main.hpp
+	$(CXX) -c $< $(INCLUDE_PATH) -o $@
+$(BUILD_DIR)/.dummy:
 	@ mkdir -p $(BUILD_DIR)
 	@ touch $@
 # 使用隐性规则去build
