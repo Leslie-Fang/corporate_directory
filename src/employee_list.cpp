@@ -16,20 +16,20 @@ Employee_List::~Employee_List(){
 	delete [] this->deleteNumber;
 }
 
-int Employee_List::get_tail_id(){
+int Employee_List::GetTailId(){
 	if(!this->tail){
 		return -1;
 	}
-	return this->tail->get_id();
+	return this->tail->GetId();
 }
 
-bool Employee_List::insert_node(Employee_Node * node){
+bool Employee_List::InsertNode(Employee_Node * node){
 	if(this->head == NULL && this->tail == NULL){
 		//empty list
 		this->head=node;
 		this->tail=this->head;
 	}else{
-		this->tail->change_next_node(node);
+		this->tail->ChangeNextNode(node);
 	}
 	this->length++;
 	return true;

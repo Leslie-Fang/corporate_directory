@@ -11,8 +11,8 @@ private:
 	Employee_Node * next;
 public:
 	Employee_Node(std::string name, int phone_number);
-	int get_id();
-	bool change_next_node(Employee_Node * node);
+	int GetId();
+	bool ChangeNextNode(Employee_Node * node);
 };
 
 #endif

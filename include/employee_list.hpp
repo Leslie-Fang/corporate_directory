@@ -15,7 +15,7 @@ private:
 public:
 	Employee_List();
 	~Employee_List();
-	int get_tail_id();
-	bool insert_node(Employee_Node * node);
+	int GetTailId();
+	bool InsertNode(Employee_Node * node);
 };
 #endif
