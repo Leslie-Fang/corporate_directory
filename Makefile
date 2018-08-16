@@ -10,7 +10,8 @@ MAIN := $(BUILD_DIR)/main
 .PHONY: all
 all: $(BUILD_DIR)/.dummy $(MAIN)
 
-OBJ := $(BUILD_DIR)/main.o $(BUILD_DIR)/employee_node.o $(BUILD_DIR)/employee_list.o $(BUILD_DIR)/insert_node.o $(BUILD_DIR)/query_node.o
+OBJ := $(BUILD_DIR)/main.o $(BUILD_DIR)/employee_node.o $(BUILD_DIR)/employee_list.o $(BUILD_DIR)/insert_node.o $(BUILD_DIR)/query_node.o \
+$(BUILD_DIR)/modify_node.o $(BUILD_DIR)/delete_node.o
 $(MAIN): $(OBJ)
 	$(CXX) -o $@ $^ $(LD_LIBRARY)
 $(BUILD_DIR)/main.o: main.cpp employee_node.hpp employee_list.hpp main.hpp insert_node.hpp query_node.hpp
@@ -22,6 +23,10 @@ $(BUILD_DIR)/employee_list.o: employee_list.cpp employee_list.hpp employee_node.
 $(BUILD_DIR)/insert_node.o: insert_node.cpp insert_node.hpp
 	$(CXX) -c $< $(INCLUDE_PATH) -o $@
 $(BUILD_DIR)/query_node.o: 	query_node.cpp query_node.hpp
+	$(CXX) -c $< $(INCLUDE_PATH) -o $@
+$(BUILD_DIR)/modify_node.o: modify_node.cpp modify_node.hpp
+	$(CXX) -c $< $(INCLUDE_PATH) -o $@
+$(BUILD_DIR)/delete_node.o: delete_node.cpp delete_node.hpp
 	$(CXX) -c $< $(INCLUDE_PATH) -o $@
 $(BUILD_DIR)/.dummy:
 	@ mkdir -p $(BUILD_DIR)

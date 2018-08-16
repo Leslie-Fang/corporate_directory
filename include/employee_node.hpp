@@ -16,6 +16,8 @@ public:
 	int GetPhoneNumber();
 	EmployeeNode * GetNext();
 	bool ChangeNextNode(EmployeeNode * node);
+	bool ChangePhoneNumber(int phone_number);
+	bool ChangeId(int id);
 };
 
 #endif

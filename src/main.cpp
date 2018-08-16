@@ -6,6 +6,8 @@
 #include "main.hpp"
 #include "insert_node.hpp" 
 #include "query_node.hpp" 
+#include "modify_node.hpp" 
+#include "delete_node.hpp" 
 using namespace std;
 
 
@@ -24,6 +26,8 @@ void InitDirectory(){
 	employee_directory_list = new EmployeeList();
 	RegisterBrewFunction(1,InsertNode);
 	RegisterBrewFunction(2,QueryNode);
+	RegisterBrewFunction(3,ModifyNode);
+	RegisterBrewFunction(4,ModifyNode);
 }
 
 BrewMap g_brew_map;

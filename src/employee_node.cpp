@@ -32,3 +32,13 @@ bool EmployeeNode::ChangeNextNode(EmployeeNode * node){
 EmployeeNode * EmployeeNode::GetNext(){
 	return this->next;
 }
+
+bool EmployeeNode::ChangePhoneNumber(int phone_number){
+	this->phone_number = phone_number;
+	return true;
+}
+
+bool EmployeeNode::ChangeId(int id){
+	this->id = id;
+	return true;
+}
