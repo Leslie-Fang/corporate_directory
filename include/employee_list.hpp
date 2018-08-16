@@ -5,17 +5,18 @@
 #include "employee_node.hpp"
 #include "employee_list.hpp"
 
-class Employee_List{
+class EmployeeList{
 private:
-	Employee_Node * head;
-	Employee_Node * tail;
+	EmployeeNode * head;
+	EmployeeNode * tail;
 	int length;
 	int Number_deleted;
 	int * deleteNumber;
 public:
-	Employee_List();
-	~Employee_List();
+	EmployeeList();
+	~EmployeeList();
 	int GetTailId();
-	bool InsertNode(Employee_Node * node);
+	bool InsertNode(EmployeeNode * node);
+	EmployeeNode * GetHead();
 };
 #endif

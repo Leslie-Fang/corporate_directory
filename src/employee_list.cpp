@@ -4,7 +4,7 @@
 #include "main.hpp"
 
 
-Employee_List::Employee_List(){
+EmployeeList::EmployeeList(){
 	this->head=NULL;
 	this->tail=NULL;
 	this->length=0;
@@ -12,18 +12,18 @@ Employee_List::Employee_List(){
 	this->deleteNumber=new int[re_list_threshhold];
 }
 
-Employee_List::~Employee_List(){
+EmployeeList::~EmployeeList(){
 	delete [] this->deleteNumber;
 }
 
-int Employee_List::GetTailId(){
+int EmployeeList::GetTailId(){
 	if(!this->tail){
 		return -1;
 	}
 	return this->tail->GetId();
 }
 
-bool Employee_List::InsertNode(Employee_Node * node){
+bool EmployeeList::InsertNode(EmployeeNode * node){
 	if(this->head == NULL && this->tail == NULL){
 		//empty list
 		this->head=node;
@@ -33,4 +33,8 @@ bool Employee_List::InsertNode(Employee_Node * node){
 	}
 	this->length++;
 	return true;
+}
+
+EmployeeNode * EmployeeList::GetHead(){
+	return this->head;
 }

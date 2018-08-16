@@ -3,16 +3,19 @@
 
 #include <string>
 
-class Employee_Node{
+class EmployeeNode{
 private:
 	int id;
 	std::string name;
 	int phone_number;
-	Employee_Node * next;
+	EmployeeNode * next;
 public:
-	Employee_Node(std::string name, int phone_number);
+	EmployeeNode(std::string name, int phone_number);
 	int GetId();
-	bool ChangeNextNode(Employee_Node * node);
+	std::string GetName();
+	int GetPhoneNumber();
+	EmployeeNode * GetNext();
+	bool ChangeNextNode(EmployeeNode * node);
 };
 
 #endif
