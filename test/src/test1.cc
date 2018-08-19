@@ -34,5 +34,4 @@ TEST_F(EmployeeListTest, InsertNode){
 	employee_directory_list->InsertNode(new EmployeeNode(name,phone_number));
 	EXPECT_EQ(name, employee_directory_list->GetHead()->GetName());
 	EXPECT_EQ(phone_number, employee_directory_list->GetHead()->GetPhoneNumber());
-
 }
