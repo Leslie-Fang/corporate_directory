@@ -1,5 +1,6 @@
 #include "employee_node.hpp"
 #include "main.hpp"
+#include "global.hpp"
 
 EmployeeNode::EmployeeNode(std::string name, int phone_number){
 	this->name = name;

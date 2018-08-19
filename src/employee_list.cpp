@@ -2,6 +2,7 @@
 #include "employee_node.hpp"
 #include "employee_list.hpp"
 #include "main.hpp"
+#include "global.hpp"
 
 
 EmployeeList::EmployeeList(){
@@ -14,6 +15,26 @@ EmployeeList::EmployeeList(){
 
 EmployeeList::~EmployeeList(){
 	delete [] this->delete_number;
+}
+
+EmployeeNode * EmployeeList::GetHead(){
+	return this->head;
+}
+
+EmployeeNode * EmployeeList::GetTail(){
+	return this->tail;
+}
+
+int EmployeeList::GetNumberDeleted(){
+	return this->number_deleted;
+}
+
+int EmployeeList::GetLength(){
+	return this->length;
+}
+
+int * EmployeeList::GetDeletedNumber(){
+	return this->delete_number;
 }
 
 int EmployeeList::GetTailId(){
@@ -56,14 +77,6 @@ bool EmployeeList::DeleteNode(EmployeeNode * pre_node, EmployeeNode * node){
 	return true;
 }
 
-EmployeeNode * EmployeeList::GetHead(){
-	return this->head;
-}
-
-EmployeeNode * EmployeeList::GetTail(){
-	return this->tail;
-}
-
 int EmployeeList::IncreaseLength(){
 	return ++this->length;
 }
@@ -72,9 +85,6 @@ int EmployeeList::DecreaseLength(){
 }
 int EmployeeList::IncreaseNumberDeleted(){
 	return ++this->number_deleted;
-}
-int EmployeeList::GetNumberDeleted(){
-	return this->number_deleted;
 }
 void EmployeeList::ClearNumberDeleted(){
 	this->number_deleted = 0;

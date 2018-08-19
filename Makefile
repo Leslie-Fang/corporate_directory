@@ -11,7 +11,7 @@ MAIN := $(BUILD_DIR)/main
 all: $(BUILD_DIR)/.dummy $(MAIN)
 
 OBJ := $(BUILD_DIR)/main.o $(BUILD_DIR)/employee_node.o $(BUILD_DIR)/employee_list.o $(BUILD_DIR)/insert_node.o $(BUILD_DIR)/query_node.o \
-$(BUILD_DIR)/modify_node.o $(BUILD_DIR)/delete_node.o
+$(BUILD_DIR)/modify_node.o $(BUILD_DIR)/delete_node.o $(BUILD_DIR)/global.o
 $(MAIN): $(OBJ)
 	$(CXX) -o $@ $^ $(LD_LIBRARY)
 $(BUILD_DIR)/main.o: main.cpp employee_node.hpp employee_list.hpp main.hpp insert_node.hpp query_node.hpp
@@ -28,6 +28,8 @@ $(BUILD_DIR)/modify_node.o: modify_node.cpp modify_node.hpp
 	$(CXX) -c $< $(INCLUDE_PATH) -o $@
 $(BUILD_DIR)/delete_node.o: delete_node.cpp delete_node.hpp
 	$(CXX) -c $< $(INCLUDE_PATH) -o $@
+$(BUILD_DIR)/global.o: global.cpp global.hpp
+	$(CXX) -c $< $(INCLUDE_PATH) -o $@
 $(BUILD_DIR)/.dummy:
 	@ mkdir -p $(BUILD_DIR)
 	@ touch $@
@@ -36,9 +38,10 @@ $(BUILD_DIR)/.dummy:
 # #       $(cc) -c $< $(CFLAG)
 .PHONY: test
 test:
-	@cd test && $(MAKE) $@
+	@cd test && $(MAKE) $@ && ./test
 
 .PHONY: clean
 clean:
 	rm -rf main *.o
 	rm -rf $(BUILD_DIR)/main $(BUILD_DIR)/*.o
+	cd test && $(MAKE) $@

@@ -4,6 +4,7 @@
 #include "employee_node.hpp"
 #include "employee_list.hpp"
 #include "main.hpp"
+#include "global.hpp"
 #include "insert_node.hpp" 
 #include "query_node.hpp" 
 #include "modify_node.hpp" 
@@ -12,9 +13,6 @@ using namespace std;
 
 
 DEFINE_int32(re_list_threshhold,100,"Define a threshhold value, when deleted numbers are bigger than this value. Re_list operation would be triggered");
-
-EmployeeList * employee_directory_list;
-int re_list_threshhold;
 
 static string entries[5]={"Insert Node","Query Information","Modify Information","Delete Node","Exit"};
 
@@ -30,7 +28,7 @@ void InitDirectory(){
 	RegisterBrewFunction(4,ModifyNode);
 }
 
-BrewMap g_brew_map;
+static BrewMap g_brew_map;
 void RegisterBrewFunction(int id, BrewFunction func){
 	g_brew_map[id] = func;
 }

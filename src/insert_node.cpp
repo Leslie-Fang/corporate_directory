@@ -2,6 +2,7 @@
 #include <map>
 #include "insert_node.hpp" 
 #include "main.hpp"
+#include "global.hpp"
 #include "employee_node.hpp"
 #include "employee_list.hpp"
 
