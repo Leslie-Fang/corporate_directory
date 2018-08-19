@@ -34,6 +34,10 @@ $(BUILD_DIR)/.dummy:
 # 使用隐性规则去build
 # #main.o: main.cpp main.hpp
 # #       $(cc) -c $< $(CFLAG)
+.PHONY: test
+test:
+	@cd test && $(MAKE) $@
+
 .PHONY: clean
 clean:
 	rm -rf main *.o
