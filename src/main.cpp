@@ -54,5 +54,6 @@ int main(int argc , char ** argv){
 		}
 	}
 	delete employee_directory_list;
+	employee_directory_list = NULL;
 	return 1;
 }
