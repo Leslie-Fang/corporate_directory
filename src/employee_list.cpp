@@ -14,6 +14,13 @@ EmployeeList::EmployeeList(){
 }
 
 EmployeeList::~EmployeeList(){
+	EmployeeNode * node = this->head;
+	EmployeeNode * prenode = NULL;
+	while(node != NULL){
+		prenode = node;
+		node = node->GetNext();
+		delete prenode;
+	}
 	delete [] this->delete_number;
 }
 
