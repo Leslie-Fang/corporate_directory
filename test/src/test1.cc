@@ -6,6 +6,10 @@
 #include "employee_node.hpp"
 #include "employee_list.hpp"
 
+using directory::EmployeeList;
+using directory::employee_directory_list;
+using directory::EmployeeNode;
+
 class EmployeeListTest : public ::testing::Test {
 protected:
 	EmployeeListTest(){}

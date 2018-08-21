@@ -10,7 +10,13 @@
 #include "modify_node.hpp" 
 #include "delete_node.hpp" 
 using namespace std;
-
+using directory::employee_directory_list;
+using directory::re_list_threshhold;
+using directory::EmployeeList;
+using directory::InsertNode;
+using directory::QueryNode;
+using directory::ModifyNode;
+using directory::DeleteNode;
 
 DEFINE_int32(re_list_threshhold,100,"Define a threshhold value, when deleted numbers are bigger than this value. Re_list operation would be triggered");
 
@@ -25,7 +31,7 @@ void InitDirectory(){
 	RegisterBrewFunction(1,InsertNode);
 	RegisterBrewFunction(2,QueryNode);
 	RegisterBrewFunction(3,ModifyNode);
-	RegisterBrewFunction(4,ModifyNode);
+	RegisterBrewFunction(4,DeleteNode);
 }
 
 static BrewMap g_brew_map;

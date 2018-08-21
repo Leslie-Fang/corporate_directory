@@ -1,6 +1,7 @@
 #ifndef MODIFY_NODE_HPP
 #define MODIFY_NODE_HPP
-
-int ModifyNode();
+namespace directory{
+	int ModifyNode();
+}
 
 #endif
