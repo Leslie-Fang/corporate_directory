@@ -7,13 +7,13 @@ $(BUILD_DIR)/modify_node.o $(BUILD_DIR)/delete_node.o
 test: main_test.o test1.o $(OBJ) ./lib/libgtest.a
 	c++ -isystem ./include -I../include -g -Wall -Wextra -pthread -o $@ $^ -L./lib -lgtest -lpthread -lgflags -v
 main_test.o: main.cc
-	c++ -isystem ./include -g -Wall -Wextra -pthread -c $< -o $@
+	c++ -isystem ./lib/include -g -Wall -Wextra -pthread -c $< -o $@
 test1.o: test1.cc
-	c++ -isystem ./include -I../include -g -Wall -Wextra -pthread -c $< -o $@
+	c++ -isystem ./lib/include -isystem ../include -g -Wall -Wextra -pthread -c $< -o $@
 ./lib/libgtest.a: ./lib/gtest-all.o
 	$(AR) rv ./lib/libgtest.a $^
 ./lib/gtest-all.o: ./lib/src/gtest-all.cc
-	c++ -isystem ./lib/include -I./lib -g -Wall -Wextra -pthread -c ./lib/src/gtest-all.cc -o ./lib/gtest-all.o
+	c++ -isystem ./lib -isystem ./lib/include -g -Wall -Wextra -pthread -c ./lib/src/gtest-all.cc -o ./lib/gtest-all.o
 clean:
 	rm *.o test ./lib/*.a ./lib/*.o
 	
