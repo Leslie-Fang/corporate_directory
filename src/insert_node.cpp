@@ -1,5 +1,6 @@
-#include <iostream>
 #include <map>
+#include <iostream>
+#include <glog/logging.h>
 #include "insert_node.hpp" 
 #include "main.hpp"
 #include "global.hpp"
@@ -24,6 +25,7 @@ namespace directory{
 	int InsertNode(){
 		std::string input;
 		int switch_command=0;
+		LOG(INFO) << "Inser Node!";
 		while(1){
 			std::cout<<"=======================InsertNode Page===================="<<std::endl;
 			for(int i=0;i<sizeof(entries)/sizeof(std::string);i++){

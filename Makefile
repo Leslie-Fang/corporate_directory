@@ -1,15 +1,16 @@
 BUILD_DIR := ./build
+LOG_DIR := ./log
 CXX = g++
 vpath %.cpp ./src
 vpath %.hpp ./include
 
 INCLUDE_PATH := -I./include
-LD_LIBRARY := -lgflags
+LD_LIBRARY := -lgflags -lglog
 
 CFLAGs := -std=c++11
 MAIN := $(BUILD_DIR)/main
 .PHONY: all
-all: $(BUILD_DIR)/.dummy $(MAIN)
+all: $(BUILD_DIR)/.dummy $(LOG_DIR)/.dummy $(MAIN)
 
 OBJ := $(BUILD_DIR)/main.o $(BUILD_DIR)/employee_node.o $(BUILD_DIR)/employee_list.o $(BUILD_DIR)/insert_node.o $(BUILD_DIR)/query_node.o \
 $(BUILD_DIR)/modify_node.o $(BUILD_DIR)/delete_node.o $(BUILD_DIR)/global.o
@@ -34,6 +35,9 @@ $(BUILD_DIR)/global.o: global.cpp global.hpp
 $(BUILD_DIR)/.dummy:
 	@ mkdir -p $(BUILD_DIR)
 	@ touch $@
+$(LOG_DIR)/.dummy:
+	@ mkdir -p $(LOG_DIR)
+	@ touch $@
 # 使用隐性规则去build
 # #main.o: main.cpp main.hpp
 # #       $(cc) -c $< $(CFLAG)
@@ -45,4 +49,5 @@ test:
 clean:
 	rm -rf main *.o
 	rm -rf $(BUILD_DIR)/main $(BUILD_DIR)/*.o
+	rm -rf $(LOG_DIR)/*
 	cd test && $(MAKE) $@

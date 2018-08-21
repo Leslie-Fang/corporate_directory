@@ -1,6 +1,7 @@
+#include <map>
 #include <iostream>
 #include <gflags/gflags.h>
-#include <map>
+#include <glog/logging.h>
 #include "employee_node.hpp"
 #include "employee_list.hpp"
 #include "main.hpp"
@@ -40,6 +41,10 @@ void RegisterBrewFunction(int id, BrewFunction func){
 }
 
 int main(int argc , char ** argv){
+	FLAGS_alsologtostderr = 1;
+	FLAGS_log_dir = "./log";
+	google::InitGoogleLogging(argv[0]);
+	LOG(INFO) << "Program Start!";
 	::google::ParseCommandLineFlags(&argc, &argv, true);
 	GetOpts();
 	InitDirectory();
@@ -61,5 +66,6 @@ int main(int argc , char ** argv){
 	}
 	delete employee_directory_list;
 	employee_directory_list = NULL;
+	google::ShutdownGoogleLogging();
 	return 1;
 }
