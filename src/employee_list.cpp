@@ -3,6 +3,8 @@
 #include "employee_list.hpp"
 #include "main.hpp"
 #include "global.hpp"
+#include <cstring>
+#include <algorithm>
 
 namespace directory{
 	EmployeeList::EmployeeList(){
