@@ -5,7 +5,7 @@ OBJ := $(BUILD_DIR)/global.o $(BUILD_DIR)/employee_node.o $(BUILD_DIR)/employee_
 $(BUILD_DIR)/modify_node.o $(BUILD_DIR)/delete_node.o
 
 test: main_test.o test1.o $(OBJ) ./lib/libgtest.a
-	c++ -isystem ./include -I../include -g -Wall -Wextra -pthread -o $@ $^ -L./lib -lgtest -lpthread -lgflags -v
+	c++ -isystem ./include -I../include -g -Wall -Wextra -pthread -o $@ $^ -L./lib -lgtest -lpthread -lgflags -lglog
 main_test.o: main.cc
 	c++ -isystem ./lib/include -g -Wall -Wextra -pthread -c $< -o $@
 test1.o: test1.cc
